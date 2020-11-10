@@ -6,9 +6,16 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@types/react-dom": "^16.9.9",
+    "@types/react-router-dom": "^5.1.6",
+    "classnames": "^2.2.6",
+    "node-sass": "^4.13.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "stylelint": "^12.0.0",
+    "stylelint-config-sass-guidelines": "^6.2.0",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -22,6 +29,22 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.56",
+    "babel-eslint": "^8.2.3",
+    "eslint": "5.6.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-unicorn": "^4.0.3",
+    "flow-bin": "^0.72.0",
+    "flow-typed": "^2.4.0"
   },
   "browserslist": {
     "production": [

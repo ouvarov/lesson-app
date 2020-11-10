@@ -1,0 +1,78 @@
+//colors
+$green: #96c038
+$dark: #282828
+$grey: #d7d7d8
+$text-grey: #b8b8b8
+$light-blue: #eaf1f0
+$gradient: linear-gradient(to top, #fff 0%, #eaf1f0 100%)
+
+=media($width)
+    @media only screen and (max-width: $width+ px)
+        @content
+
+
+//fonts
+$ptSans: 'PT Sans', sans-serif
+$lora: 'Lora', serif
+
+
+=fontStile($family, $weight, $size, $color)
+    color: $color
+    font-size: $size
+    font-family: $family
+    font-weight: $weight
+
+=size($size)
+    height: $size
+    width: $size
+
+=hover($color)
+    &:hover
+        box-shadow: 0 2px 30px $color
+
+.App
+    height: 100vh
+    width: 100vw
+
+.body
+    +size(100%)
+
+
+
+textarea
+    outline: none
+    resize: none
+    &:active,
+    &:focus
+        outline: none
+        resize: none
+
+button
+    outline: none
+    border: none
+    &:active,
+    &:focus
+        outline: none
+        border: none
+
+\:active,
+\:hover,
+\:focus
+    outline: none
+    outline-offset: 0
+
+select
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+
+.app
+    min-width: 100vw
+    min-height: 100vh
+    display: grid
+
+.body
+    display: grid
+    grid-template-areas: 'header header header''aside content content'
+    grid-template-columns: 2fr 10fr
+    grid-template-rows: 60px 1fr
