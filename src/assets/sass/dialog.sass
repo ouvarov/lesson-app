@@ -1,0 +1,15 @@
+.dialog
+    display: grid
+    grid-template-columns: 2fr 10fr
+    height: 100%
+
+    &__item
+        display: block
+        color: black
+    &__img
+        +size(24px)
+        padding-right: 16px
+    &__item-wrap
+        height: calc(100% - 80px)
+        overflow: auto
+

@@ -8,28 +8,24 @@ import Dialogs from './Dialogs';
 import News from './News';
 import Settings from './Settings';
 import Music from './Music';
+import { StateTypes } from '../types';
 
-const Body: React.FunctionComponent = () => (
+type BodyProps = {
+    state: StateTypes;
+    store: any;
+};
+
+const Body: React.FunctionComponent<BodyProps> = ({ state, store }) => (
     <BrowserRouter>
         <div className="body">
             <Header />
             <Aside />
             <div className="content">
-                <Route path="/profile">
-                    <Profile />
-                </Route>
-                <Route path="/dialogs">
-                    <Dialogs />
-                </Route>
-                <Route path="/news">
-                    <News />
-                </Route>
-                <Route path="/music">
-                    <Music />
-                </Route>
-                <Route path="/settings">
-                    <Settings />
-                </Route>
+                <Route path="/profile" render={() => <Profile state={state} store={store} />} />
+                <Route path="/dialogs" render={() => <Dialogs store={store} dialogsPage={state.dialogsPage} />} />
+                <Route path="/news" render={() => <News />} />
+                <Route path="/music" render={() => <Music />} />
+                <Route path="/settings" render={() => <Settings />} />
             </div>
         </div>
     </BrowserRouter>

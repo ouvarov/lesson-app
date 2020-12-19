@@ -1,10 +1,10 @@
 import React from 'react';
 
 type ProfileInfoProps = {
-    userName: string,
-    bio: string,
-    userIcon: string,
-    wallpaperIcon: string,
+    userName: string;
+    bio: string;
+    userIcon: string;
+    wallpaperIcon: string;
 };
 
 const ProfileInfo: React.FunctionComponent<ProfileInfoProps> = ({ userName, bio, userIcon, wallpaperIcon }) => (

@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import store from './state/redaxStore';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root'),
-);
+const renderEntireTree = (state: any): void => {
+    ReactDOM.render(
+        <React.StrictMode>
+            <App state={state} store={store} />
+        </React.StrictMode>,
+        document.getElementById('root'),
+    );
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+renderEntireTree(store.getState());
+store.subscribe(() => renderEntireTree(store.getState()));
 reportWebVitals();

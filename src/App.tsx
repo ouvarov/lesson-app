@@ -1,10 +1,16 @@
 import React from 'react';
 import './App.sass';
 import Body from './components/Body';
+import { StateTypes } from './types';
 
-const App: React.FunctionComponent = () => (
+type AppProps = {
+    state: StateTypes;
+    store: any;
+};
+
+const App: React.FunctionComponent<AppProps> = ({ state, store }) => (
     <div className="App">
-        <Body />
+        <Body state={state} store={store} />
     </div>
 );
 

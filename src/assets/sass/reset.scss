@@ -107,3 +107,34 @@ code, kbd, pre, samp {
 label {
     cursor: pointer;
 }
+
+textarea {
+    outline: none;
+    resize: none;
+    &:active,
+    &:focus {
+        outline: none;
+        resize: none;
+    }
+}
+
+button {
+    outline: none;
+    border: none;
+    &:active,
+    &:focus {
+        outline: none;
+        border: none;
+    }
+}
+
+\:active,
+\:hover,
+\:focus {
+    outline: none;
+    outline-offset: 0;
+}
+
+select {
+    appearance: none;
+}

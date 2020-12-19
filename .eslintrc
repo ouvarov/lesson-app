@@ -1,14 +1,14 @@
 {
   "extends": [
     "airbnb",
-    "plugin:prettier/recommended",
+    "plugin:prettier/recommended"
   ],
   "parser": "babel-eslint",
   "plugins": [
     "react",
     "jsx-a11y",
     "import",
-    "prettier",
+    "prettier"
   ],
   "env": {
     "browser": true,
@@ -26,6 +26,8 @@
     "import/first": 1,
     "arrow-body-style": 1,
     "no-plusplus": [1, { "allowForLoopAfterthoughts": true }],
+    "no-underscore-dangle":  [0, { "allow": ["_place"] }],
+    "react/jsx-no-bind": [ 0, { "ignoreDOMComponents": true } ],
     "react/jsx-indent": [1,4],
     "react/jsx-indent-props": [1,4],
     "react/no-did-mount-set-state": 0,
@@ -48,12 +50,11 @@
       "aspects": [ "noHref", "invalidHref", "preferButton" ]
     }],
     "import/prefer-default-export": 0,
-    "prettier/prettier": ["warn", {
+    "prettier/prettier": ["error", {
       "singleQuote": true,
-      "parser": "flow",
       "tabWidth": 4,
-      "trailingComma": "all",
-      "printWidth": 120
+      "printWidth": 120,
+      "trailingComma": "all"
     }],
     "jsx-a11y/media-has-caption": 0
   },
