@@ -1,17 +1,19 @@
 import React from 'react';
 import { updateCounterLikeActionCreator } from '../../../state';
+import { useDispatch } from 'react-redux';
 
 type MessageItemProps = {
     message: string;
     likeCounter: number;
     userIcon: string;
     id: number;
-    store: any;
 };
 
-const PostItem: React.FunctionComponent<MessageItemProps> = ({ message, likeCounter, userIcon, id, store }) => {
+const PostItem: React.FunctionComponent<MessageItemProps> = ({ message, likeCounter, userIcon, id }) => {
+    const dispatch = useDispatch();
+
     const onClickLike = () => {
-        store.dispatch(updateCounterLikeActionCreator(id));
+        dispatch(updateCounterLikeActionCreator(id));
     };
 
     return (

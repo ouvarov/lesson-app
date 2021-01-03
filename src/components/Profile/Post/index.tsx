@@ -1,21 +1,20 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PostItem from './PostItem';
-import { PostTypes } from '../../../types';
+import { StateTypes } from '../../../types';
 import { addPostActionCreator, updatePostTextActionCreator } from '../../../state';
 
-type PostProps = {
-    post: PostTypes[];
-    value: string;
-    store: any;
-};
+const Post: React.FunctionComponent = () => {
+    const dispatch = useDispatch();
+    const post = useSelector((state: StateTypes) => state.profile.post);
+    const value = useSelector((state: StateTypes) => state.profile.newPostText);
 
-const Post: React.FunctionComponent<PostProps> = ({ post, value, store }) => {
     const onClick = (): void => {
-        store.dispatch(addPostActionCreator());
+        dispatch(addPostActionCreator());
     };
 
     const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
-        store.dispatch(updatePostTextActionCreator(e.target.value));
+        dispatch(updatePostTextActionCreator(e.target.value));
     };
 
     return (
@@ -26,14 +25,7 @@ const Post: React.FunctionComponent<PostProps> = ({ post, value, store }) => {
                 send
             </button>
             {post.map(({ userIcon, likeCounter, message, id }) => (
-                <PostItem
-                    store={store}
-                    userIcon={userIcon}
-                    message={message}
-                    likeCounter={likeCounter}
-                    id={id}
-                    key={id}
-                />
+                <PostItem userIcon={userIcon} message={message} likeCounter={likeCounter} id={id} key={id} />
             ))}
         </div>
     );

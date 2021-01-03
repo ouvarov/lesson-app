@@ -12,7 +12,7 @@ const store = {
                         'https://i.ytimg.com/vi/RCX2OwrGzqs/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLB49W60XXIAFeuE27afvVN6NUVrSw',
                 },
                 {
-                    id: 3,
+                    id: 2,
                     name: 'Миша',
                     userIcon:
                         'https://i.ytimg.com/vi/RCX2OwrGzqs/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLB49W60XXIAFeuE27afvVN6NUVrSw',
