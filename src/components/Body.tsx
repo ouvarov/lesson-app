@@ -7,6 +7,7 @@ import Dialogs from './Dialogs';
 import News from './News';
 import Settings from './Settings';
 import Music from './Music';
+import FindUsers from './FindUsers';
 
 const Body: React.FunctionComponent = () => (
     <BrowserRouter>
@@ -19,6 +20,7 @@ const Body: React.FunctionComponent = () => (
                 <Route path="/news" render={() => <News />} />
                 <Route path="/music" render={() => <Music />} />
                 <Route path="/settings" render={() => <Settings />} />
+                <Route path="/find-users" render={() => <FindUsers />} />
             </div>
         </div>
     </BrowserRouter>

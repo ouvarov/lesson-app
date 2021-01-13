@@ -10,6 +10,9 @@ const Aside: React.FunctionComponent = () => (
             <NavLink to="/dialogs" activeClassName="aside__link--active" className="aside__link">
                 Messages
             </NavLink>
+            <NavLink to="/find-users" activeClassName="aside__link--active" className="aside__link">
+                Find Users
+            </NavLink>
             <NavLink to="/news" activeClassName="aside__link--active" className="aside__link">
                 News
             </NavLink>
