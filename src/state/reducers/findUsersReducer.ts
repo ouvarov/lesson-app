@@ -1,11 +1,12 @@
 import { ACTIVE_TYPE } from './consts';
+import { FindUsersTypes } from '../../types';
 
 const findUsersReducer = (state: any = { users: [] }, action: any) => {
     switch (action.type) {
         case ACTIVE_TYPE.FOLLOW:
             return {
                 ...state,
-                users: state.users.map((u: any) => {
+                users: state.users.map((u: FindUsersTypes) => {
                     if (u.id === action.userId) {
                         return { ...u, followed: true };
                     }
@@ -15,7 +16,7 @@ const findUsersReducer = (state: any = { users: [] }, action: any) => {
         case ACTIVE_TYPE.UNFOLLOW:
             return {
                 ...state,
-                users: state.users.map((u: any) => {
+                users: state.users.map((u: FindUsersTypes) => {
                     if (u.id === action.userId) {
                         return { ...u, followed: false };
                     }
@@ -29,8 +30,8 @@ const findUsersReducer = (state: any = { users: [] }, action: any) => {
     }
 };
 
-export const follow = (userId: number) => ({ type: 'FOLLOW', userId });
-export const unFollow = (userId: number) => ({ type: 'FOLLOW', userId });
-export const setUsers = (users: any) => ({ type: 'SET_USER', users });
+export const follow = (userId: number) => ({ type: ACTIVE_TYPE.FOLLOW, userId });
+export const unFollow = (userId: number) => ({ type: ACTIVE_TYPE.UNFOLLOW, userId });
+export const setUsers = (users: any) => ({ type: ACTIVE_TYPE.SET_USER, users });
 
 export default findUsersReducer;
