@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { StateTypes } from '../../types';
@@ -8,12 +8,20 @@ import UsersItem from './UsersItem';
 const FindUsers: React.FunctionComponent = () => {
     const users = useSelector((state: StateTypes) => state.findUsers.users);
     const dispatch = useDispatch();
+    const [pageCounter, setPageCounter] = useState(1);
+    const [totalCount, setTotalCount] = useState(0);
 
     const onClickFindUsers = (): void => {
-        axios
-            .get('https://social-network.samuraijs.com/api/1.0/users')
-            .then(response => dispatch(setUsers(response.data.items)));
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageCounter}`).then(response => {
+            dispatch(setUsers(response.data.items));
+            setTotalCount(response.data.totalCount);
+        });
+        setPageCounter(prevCount => prevCount + 1);
     };
+
+    useEffect(() => {
+        onClickFindUsers();
+    }, []);
 
     return (
         <div className="users-wrap">
@@ -27,7 +35,10 @@ const FindUsers: React.FunctionComponent = () => {
                     photos={photos}
                 />
             ))}
-            <button onClick={onClickFindUsers}>Find users</button>
+            <div> total count {totalCount}</div>
+            <button className="button" onClick={onClickFindUsers}>
+                Find users
+            </button>
         </div>
     );
 };
