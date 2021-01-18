@@ -11,13 +11,9 @@ type UsersItemProps = {
         small: string;
     };
     id: number;
-    location: {
-        city: string;
-        country: string;
-    };
 };
 
-const UsersItem: React.FunctionComponent<UsersItemProps> = ({ followed, name, status, location, id, photos }) => {
+const UsersItem: React.FunctionComponent<UsersItemProps> = ({ followed, name, status, id, photos }) => {
     const dispatch = useDispatch();
     const onClickUnFollow = (userId: number): void => {
         dispatch(unFollow(userId));
@@ -37,12 +33,6 @@ const UsersItem: React.FunctionComponent<UsersItemProps> = ({ followed, name, st
             </figure>
             <div className="user-item__name">{name}</div>
             <div className="user-item__status">{status}</div>
-            {location && (
-                <div className="user-item__location-wrap">
-                    <span className="user-item__location">{location.city}</span>
-                    <span className="user-item__location">{location.country}</span>
-                </div>
-            )}
             {followed ? (
                 <button
                     className="button"

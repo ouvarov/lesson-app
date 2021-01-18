@@ -7,4 +7,5 @@ export enum ACTIVE_TYPE {
     FOLLOW = 'FOLLOW',
     UNFOLLOW = 'UNFOLLOW',
     SET_USER = 'SET-USER',
+    SET_PAGE = 'SET-PAGE',
 }

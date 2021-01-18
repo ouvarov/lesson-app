@@ -1,7 +1,7 @@
 import { ACTIVE_TYPE } from './consts';
 import { FindUsersTypes } from '../../types';
 
-const findUsersReducer = (state: any = { users: [] }, action: any) => {
+const findUsersReducer = (state: any = { users: [], pageCounter: 1 }, action: any) => {
     switch (action.type) {
         case ACTIVE_TYPE.FOLLOW:
             return {
@@ -24,7 +24,9 @@ const findUsersReducer = (state: any = { users: [] }, action: any) => {
                 }),
             };
         case ACTIVE_TYPE.SET_USER:
-            return { ...state, users: [...state.users, ...action.users] };
+            return { ...state, users: [...action.users] };
+        case ACTIVE_TYPE.SET_PAGE:
+            return { ...state, pageCounter: action.pageCounter };
         default:
             return state;
     }
@@ -33,5 +35,6 @@ const findUsersReducer = (state: any = { users: [] }, action: any) => {
 export const follow = (userId: number) => ({ type: ACTIVE_TYPE.FOLLOW, userId });
 export const unFollow = (userId: number) => ({ type: ACTIVE_TYPE.UNFOLLOW, userId });
 export const setUsers = (users: any) => ({ type: ACTIVE_TYPE.SET_USER, users });
+export const setPage = (pageCounter: number) => ({ type: ACTIVE_TYPE.SET_PAGE, pageCounter });
 
 export default findUsersReducer;
